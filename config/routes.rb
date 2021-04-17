@@ -1,3 +1,7 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  resources :produtos, only: :index
+  resources :carrinhos, only: [:edit, :update]
+  resources :pedidos, only: [:new, :create]
+
 end

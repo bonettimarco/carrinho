@@ -1,0 +1,26 @@
+<h1>Carrinho#show</h1>
+
+<h1> Nossa loja</h1>
+
+<h2>Produtos e contador de visitas = <%= @carrinho %></h2>
+
+<div class="table-wrapper table-responsive-xl">
+  <table class="table table-striped">
+    <thead>
+    <th>Produto</th>
+    <th>descrição</th>
+    <th>preço</th>
+    <th class="col-md-2"></th>
+    </thead>
+    <tbody>
+    <% @itens.each do |produto|%>
+      <tr>
+        <td><%= produto.nome %></td>
+        <td><%= produto.descricao %></td>
+        <td><%= produto.preco %></td>
+        <td><%= link_to 'Incluir no carrinho', edit_carrinho_path(produto) %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
