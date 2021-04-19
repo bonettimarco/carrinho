@@ -1,5 +1,9 @@
 class PedidosController < ApplicationController
 
+  def index
+    @pedidos = Pedido.all
+  end
+
   def new
     @pedido = Pedido.new(tipo_pagamento_id: params[:tipo_pagamento_id])
     @metodo = params[:tipo_pagamento_id] == '1' ? 'crédito' : 'débito'

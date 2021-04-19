@@ -24,8 +24,13 @@ class ProcessadorComando
   end
 
   def atualizar_pedido
+    itens.each do |item|
+      item.subtrai_do_estoque
+      pedido.produtos << item
+    end
+    pedido.numero_pagamento = @operacao.numero
+    pedido.valor_pago = @operacao.valor
     pedido.save
-    pedido.update(numero_pagamento: @operacao.numero, valor_pago: @operacao.valor)
   end
 
   private
