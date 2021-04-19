@@ -1,0 +1,41 @@
+<h1>Carrinho#show</h1>
+
+<h1> Nossa loja</h1>
+<details>
+  <summary>Forma de pagamento</summary>
+  <ul>
+    <% @pagamento.each do |pagamento| %>
+      <%= form_with model: @pedido do |form| %>
+        <%= "Lógica do pagamento de #{pagamento[:tipo]} ficaria aqui" %>
+        <%= form.hidden_field :tipo_pagamento_id, value: pagamento[:tipo_pagamento_id] %>
+        <%= form.submit "Confirmar pagamento" %>
+      <% end %>
+    <% end %>
+  </ul>
+</details>
+<%= link_to 'Continuar comprando', root_path %>
+
+<h2>Soma do pedido = <%= @soma %></h2>
+
+<div class="table-wrapper table-responsive-xl">
+  <table class="table table-striped">
+    <thead>
+    <th>Produto</th>
+    <th>descrição</th>
+    <th>preço</th>
+    <th class="col-md-2"></th>
+    </thead>
+    <tbody>
+    <% @itens.each do |produto|%>
+      <tr>
+        <td><%= produto.nome %></td>
+        <td><%= produto.descricao %></td>
+        <td><%= produto.preco %></td>
+        <td>
+          <%= button_to "Retirar do carrinho", remover_do_carrinho_path, method: :delete, params: {id: produto.id} %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

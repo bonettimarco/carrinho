@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_17_184008) do
+ActiveRecord::Schema.define(version: 2021_04_18_200612) do
+
+  create_table "pedidos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.decimal "valor_pago", precision: 10
+    t.bigint "produto_id"
+    t.integer "numero_pagamento"
+    t.integer "tipo_pagamento_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["produto_id"], name: "index_pedidos_on_produto_id"
+  end
 
   create_table "produtos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nome"
@@ -20,4 +30,5 @@ ActiveRecord::Schema.define(version: 2021_04_17_184008) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "pedidos", "produtos"
 end
