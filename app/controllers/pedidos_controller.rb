@@ -20,7 +20,9 @@ class PedidosController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @pedido = Pedido.find(params[:id])
+  end
 
     private
 

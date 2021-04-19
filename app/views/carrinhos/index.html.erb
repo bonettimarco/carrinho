@@ -1,9 +1,9 @@
 <h1>Carrinho#show</h1>
 
 <h1> Nossa loja</h1>
-<!--<details>-->
-<!--  <summary><a>Forma de pagamento</a></summary>-->
-<!--  <ul>-->
+
+<h2>Forma de pagamento</h2>
+
     <% @pagamento.each do |pagamento| %>
       <%= form_with model: @pedido do |form| %>
         <%= "Lógica do pagamento de #{pagamento[:tipo]} ficaria aqui" %>
@@ -11,8 +11,7 @@
         <%= form.submit "Pagar a #{pagamento[:tipo]}" %>
       <% end %>
     <% end %>
-<!--  </ul>-->
-<!--</details>-->
+
 <%= link_to 'Continuar comprando', root_path %>
 
 <h2>Soma do pedido = <%= @soma %></h2>

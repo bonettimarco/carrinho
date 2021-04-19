@@ -22,6 +22,7 @@ RSpec.describe 'Gerenciando Pedidos', type: :feature do
 
     scenario 'Colocar produtos no carrinho' do
       visit root_path
+      sleep 1
 
       find_all('tr')[3].find_all('td')[3].click
       sleep 2
@@ -56,7 +57,7 @@ RSpec.describe 'Gerenciando Pedidos', type: :feature do
       visit root_path
 
       find_all('tr')[3].find_all('td')[3].click
-      sleep 1
+      sleep 2
 
       click_on 'Retirar do carrinho'
       sleep 1

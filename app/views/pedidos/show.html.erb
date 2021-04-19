@@ -1,3 +1,39 @@
 <h1>Compra realizada com sucesso</h1>
 
 <%= link_to 'Realizar novo pedido', root_path %>
+
+<p>Dados do pedido</p>
+
+<div class="table-wrapper table-responsive-xl">
+  <table class="table table-striped">
+    <thead>
+    <th>Tipo pagamento</th>
+    <th>Valor pago</th>
+    <th>Número da cobrança</th>
+    </thead>
+    <tbody>
+    <td><%= @pedido.tipo_pagamento_id == 0 ? "débito" : "crédito"  %></td>
+    <td><%= @pedido.valor_pago %></td>
+    <td><%= @pedido.numero_pagamento %></td>
+    </tbody>
+  </table>
+</div>
+
+<div class="table-wrapper table-responsive-xl">
+  <table class="table table-striped">
+    <thead>
+    <th>Produto</th>
+    <th>descrição</th>
+    <th>preço</th>
+    </thead>
+    <tbody>
+    <% @pedido.produtos.each do |produto|%>
+      <tr>
+        <td><%= produto.nome %></td>
+        <td><%= produto.descricao %></td>
+        <td><%= produto.preco %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
