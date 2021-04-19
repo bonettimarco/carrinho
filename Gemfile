@@ -25,10 +25,12 @@ group :test do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'rspec-rails'
   gem 'factory_bot_rails'
+  gem 'shoulda-matchers', require: false
   gem 'simplecov', require: false
   gem 'capybara', '3.18.0'
   gem 'database_cleaner'
   gem 'launchy'
+  gem 'apparition'
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
 end

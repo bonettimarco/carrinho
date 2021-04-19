@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :produto do
     nome { "MyString" }
-    preco { 9.99 }
+    preco { 3.00 }
     descricao { "MyText" }
   end
 end
