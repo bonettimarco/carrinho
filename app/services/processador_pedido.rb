@@ -19,8 +19,13 @@ class ProcessadorPedido
       transacao = ProcessadorComando.new(pedido, itens)
       transacao.processar
       transacao.atualizar_pedido
+      self.adiciona_errors(transacao.pedido.errors) if transacao.pedido.errors.any?
       raise ActiveRecord::Rollback if transacao.pedido.errors.any?
       self
     end
+  end
+
+  def adiciona_errors(erros)
+    erros.each{ |msg| errors.add(:base, msg) }
   end
 end

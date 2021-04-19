@@ -23,6 +23,20 @@ RSpec.describe 'Gerenciando Pagamentos', type: :feature do
         expect(Pedido.count).to eq(1)
         expect(Pedido.first.produtos.count).to eq(1)
       end
+
+      scenario 'Colocar produto, pagar' do
+        visit root_path
+
+        find_all('tr')[3].find_all('td')[3].click
+        sleep 3
+
+        find("input[type=submit][value='Pagar a crédito']").click
+        sleep 2
+
+        expect(page).to have_content('Compra realizada com sucesso')
+        expect(Pedido.count).to eq(1)
+        expect(Pedido.first.produtos.count).to eq(1)
+      end
     end
     describe 'Com erro' do
       scenario 'Colocar produto, pagar' do

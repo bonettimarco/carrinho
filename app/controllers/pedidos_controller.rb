@@ -1,13 +1,9 @@
 class PedidosController < ApplicationController
-
-  def index
-    @pedidos = Pedido.all
-  end
-
-  def new
-    @pedido = Pedido.new(tipo_pagamento_id: params[:tipo_pagamento_id])
-    @metodo = params[:tipo_pagamento_id] == '1' ? 'crédito' : 'débito'
-  end
+  #
+  # def new
+  #   @pedido = Pedido.new(tipo_pagamento_id: params[:tipo_pagamento_id])
+  #   @metodo = params[:tipo_pagamento_id] == '1' ? 'crédito' : 'débito'
+  # end
 
   def create
     @pedido = Pedido.new(pedido_params)
@@ -16,7 +12,7 @@ class PedidosController < ApplicationController
       session[:carrinho] = []
       redirect_to pedido_path(@pedido)
     else
-      redirect_to carrinhos_path
+      redirect_to carrinhos_path, notice: "Falha no processamento, tente novamente mais tarde"
     end
   end
 
