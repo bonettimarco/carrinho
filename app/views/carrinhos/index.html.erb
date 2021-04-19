@@ -1,18 +1,18 @@
 <h1>Carrinho#show</h1>
 
 <h1> Nossa loja</h1>
-<details>
-  <summary>Forma de pagamento</summary>
-  <ul>
+<!--<details>-->
+<!--  <summary><a>Forma de pagamento</a></summary>-->
+<!--  <ul>-->
     <% @pagamento.each do |pagamento| %>
       <%= form_with model: @pedido do |form| %>
         <%= "Lógica do pagamento de #{pagamento[:tipo]} ficaria aqui" %>
         <%= form.hidden_field :tipo_pagamento_id, value: pagamento[:tipo_pagamento_id] %>
-        <%= form.submit "Confirmar pagamento" %>
+        <%= form.submit "Pagar a #{pagamento[:tipo]}" %>
       <% end %>
     <% end %>
-  </ul>
-</details>
+<!--  </ul>-->
+<!--</details>-->
 <%= link_to 'Continuar comprando', root_path %>
 
 <h2>Soma do pedido = <%= @soma %></h2>
