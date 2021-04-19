@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :produto do
-    nome { "MyString" }
+    nome { Faker::Book.title }
     preco { 3.00 }
-    descricao { "MyText" }
+    descricao { Faker::TvShows::Suits.quote }
   end
 end

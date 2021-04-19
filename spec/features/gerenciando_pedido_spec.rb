@@ -9,35 +9,89 @@ RSpec.describe 'Gerenciando Pedidos', type: :feature do
     before(:each) do
       produtos
     end
+
     scenario 'Visualizar produtos' do
       visit root_path
 
-
-
-      find_all('tr')[1].find_all('td')[2].click
-      debugger
-
+      expect(page).to have_content(produtos.first.nome)
+      expect(page).to have_content(produtos.second.nome)
+      expect(page).to have_content(produtos.third.nome)
+      expect(page).to have_content(produtos.fourth.nome)
+      expect(page).to have_content(produtos.fifth.nome)
     end
 
     scenario 'Colocar produtos no carrinho' do
       visit root_path
 
-      debugger
+      find_all('tr')[3].find_all('td')[3].click
+      sleep 2
 
-      click_link 'Confirmar dados do Aluno'
-      sleep 1
+      expect(page).not_to have_content(produtos.first.nome)
+      expect(page).not_to have_content(produtos.second.nome)
+      expect(page).to have_content(produtos.third.nome)
+      expect(page).not_to have_content(produtos.fourth.nome)
+      expect(page).not_to have_content(produtos.fifth.nome)
 
-      fill_autocomplete_select2 'por_nome_ou_matricula_ou_cpf', with: 'Joao Enzo'
-      sleep 1
-
-      within('.modal') do
-        expect(page.body).to have_field('Nome')
-        expect(page.body).to include('Joao Enzo')
-        expect(page.body).to have_field('CPF')
-        expect(page.body).to include('12345678901')
-        expect(page.body).to have_field('Matricula')
-        expect(page.body).to include('654321')
-      end
     end
+
+    scenario 'Colocar produto e voltar para home' do
+      visit root_path
+
+      find_all('tr')[3].find_all('td')[3].click
+      sleep 2
+
+      click_on 'Continuar comprando'
+      sleep 1
+
+      expect(page).to have_content(produtos.first.nome)
+      expect(page).to have_content(produtos.second.nome)
+      expect(page).to have_content(produtos.third.nome)
+      expect(page).to have_content(produtos.fourth.nome)
+      expect(page).to have_content(produtos.fifth.nome)
+      expect(page).to have_button('Retirar do carrinho')
+
+    end
+
+    scenario 'Colocar produto, retirar produto' do
+      visit root_path
+
+      find_all('tr')[3].find_all('td')[3].click
+      sleep 1
+
+      debugger
+      click_on 'Retirar do carrinho'
+      sleep 1
+
+      expect(page).to have_content(produtos.first.nome)
+      expect(page).to have_content(produtos.second.nome)
+      expect(page).to have_content(produtos.third.nome)
+      expect(page).to have_content(produtos.fourth.nome)
+      expect(page).to have_content(produtos.fifth.nome)
+      expect(page).not_to have_button('Retirar do carrinho')
+
+    end
+
+    scenario 'Colocar produto, voltar para home, retirar produto' do
+      visit root_path
+
+      find_all('tr')[3].find_all('td')[3].click
+      sleep 1
+
+      click_on 'Continuar comprando'
+      sleep 1
+
+      click_on 'Retirar do carrinho'
+      sleep 1
+
+      expect(page).to have_content(produtos.first.nome)
+      expect(page).to have_content(produtos.second.nome)
+      expect(page).to have_content(produtos.third.nome)
+      expect(page).to have_content(produtos.fourth.nome)
+      expect(page).to have_content(produtos.fifth.nome)
+      expect(page).not_to have_button('Retirar do carrinho')
+
+    end
+
+
   end
 end
