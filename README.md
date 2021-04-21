@@ -1,6 +1,6 @@
 # README
 
-git clone https://github.com/bonettimarco/carrinho.git
+<div>git clone https://github.com/bonettimarco/carrinho.git</div>
 cd carrinho
 bundle
 ajustar a configuração do banco em config/database.yml
