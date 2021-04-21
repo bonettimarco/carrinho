@@ -22,7 +22,7 @@
               <%= button_to "Retirar do carrinho", remover_do_carrinho_path, method: :delete, params: {id: produto.id} %>
             </td>
           <% else %>
-            <td><%= link_to 'Incluir no carrinho', por_no_carrinho_path(produto), method: :post %></td>
+            <td class="btn"><%= link_to 'Incluir no carrinho', por_no_carrinho_path(produto), method: :post %></td>
           <% end %>
         </tr>
         <% end %>
