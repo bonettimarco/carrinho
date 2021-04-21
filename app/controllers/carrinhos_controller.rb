@@ -9,8 +9,6 @@ class CarrinhosController < ApplicationController
   end
 
   private
-  def carrinho_params
-  end
 
   def checa_estoque
     true

@@ -6,7 +6,7 @@ require 'capybara/apparition'
 
 # Para visualizar o chrome  headless: false
 options = { js_errors: false,
-            headless: false,
+            headless: true,
             timeout: 10,
             skip_image_loading: true,
             browser_options: { 'whitelisted-ips' => '',

@@ -16,10 +16,6 @@ class ProdutosController < ApplicationController
     redirect_to root_path
   end
 
-  def retirar_do_carrinho
-
-  end
-
   private
 
   def initialize_session
