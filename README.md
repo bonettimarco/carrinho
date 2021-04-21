@@ -1,14 +1,14 @@
 # README
 
 <div>git clone https://github.com/bonettimarco/carrinho.git</div>
-cd carrinho
-bundle
-ajustar a configuração do banco em config/database.yml
-rake db:create:all db:migrate db:seed
-
-ver o site
-rails s
-http://lcoalhost:3000
-
-rodar os testes
-rspec
+<div>cd carrinho</div>
+<div>bundle</div>
+<div>ajustar a configuração do banco em config/database.yml</div>
+<div>rake db:create:all db:migrate db:seed</div>
+<div></div>
+<div>ver o site</div>
+<div>rails s</div>
+<div>http://lcoalhost:3000</div>
+<div></div>
+<div>rodar os testes</div>
+<div>rspec</div>
