@@ -14,7 +14,7 @@
 
 <%= link_to 'Continuar comprando', root_path %>
 
-<h2>Soma do pedido = <%= @soma %></h2>
+<h2>Soma do pedido = <%= number_to_currency(@soma, unit: "R$", separator: ",", delimiter: ".") %></h2>
 
 <div class="table-wrapper table-responsive-xl">
   <table class="table table-striped">
@@ -29,7 +29,7 @@
       <tr>
         <td><%= produto.nome %></td>
         <td><%= produto.descricao %></td>
-        <td><%= produto.preco %></td>
+        <td><%= number_to_currency(produto.preco, unit: "R$", separator: ",", delimiter: ".") %></td>
         <td>
           <%= button_to "Retirar do carrinho", remover_do_carrinho_path, method: :delete, params: {id: produto.id} %>
         </td>

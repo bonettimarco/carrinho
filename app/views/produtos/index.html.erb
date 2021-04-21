@@ -1,6 +1,6 @@
 <h1> Nossa loja</h1>
 
-<h2>Total da compra = <%= @soma %></h2>
+<h2>Total da compra = <%= number_to_currency(@soma, unit: "R$", separator: ",", delimiter: ".") %></h2>
 <%= link_to 'Finalizar compra', carrinhos_path %>
 
   <div class="table-wrapper table-responsive-xl">
@@ -16,7 +16,7 @@
         <tr>
           <td><%= produto.nome %></td>
           <td><%= produto.descricao %></td>
-          <td><%= produto.preco %></td>
+          <td><%= number_to_currency(produto.preco, unit: "R$", separator: ",", delimiter: ".") %></td>
           <% if @carrinho.include?(produto.id) %>
             <td>
               <%= button_to "Retirar do carrinho", remover_do_carrinho_path, method: :delete, params: {id: produto.id} %>
