@@ -1,11 +1,4 @@
-class ProcessadorComando::FormaPagamentoDois
-
-  attr_reader :numero, :valor
-
-  def initialize(valor)
-    @valor = valor
-    @numero = '123456789'
-  end
+class ProcessadorComando::FormaPagamentoDois < ProcessadorComando::Pagamento
 
   def processar
     return true

@@ -46,7 +46,7 @@ RSpec.describe 'Gerenciando Pagamentos', type: :feature do
         visit root_path
 
         find_all('tr')[3].find_all('td')[3].click
-        sleep 2
+        sleep 4
 
         find("input[type=submit][value='Pagar a débito']").click
         sleep 2

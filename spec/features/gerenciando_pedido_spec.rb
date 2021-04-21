@@ -39,7 +39,7 @@ RSpec.describe 'Gerenciando Pedidos', type: :feature do
       visit root_path
 
       find_all('tr')[3].find_all('td')[3].click
-      sleep 2
+      sleep 3
 
       click_on 'Continuar comprando'
       sleep 1
