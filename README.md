@@ -1,24 +1,14 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+git clone https://github.com/bonettimarco/carrinho.git
+cd carrinho
+bundle
+ajustar a configuração do banco em config/database.yml
+rake db:create:all db:migrate db:seed
 
-Things you may want to cover:
+ver o site
+rails s
+http://lcoalhost:3000
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+rodar os testes
+rspec
